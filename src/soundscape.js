@@ -3,7 +3,7 @@ export function createSoundscape(onChange) {
   const voices=new Set();
   const counts={notes:0,drops:0,quacks:0};
   let duckBuffer,duckLoad,duckError=null;
-  const duckBytes=fetch(new URL('./mallard-quack.ogg',import.meta.url)).then(response=>{
+  const duckBytes=fetch(new URL('../assets/audio/mallard-quack.ogg',import.meta.url)).then(response=>{
     if(!response.ok)throw new Error('Duck recording unavailable');return response.arrayBuffer();
   }).catch(error=>{duckError=error.message;return null;});
   function loadDuck(){
