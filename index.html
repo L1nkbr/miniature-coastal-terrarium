@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e8eee2" />
+    <title>林间浅湾</title>
+    <link rel="icon" href="data:," />
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="experience" aria-label="林间浅湾">
+      <div id="scene" aria-label="树林沙滩与潮水生态箱"></div>
+      <aside id="story-card" class="story-card" aria-live="polite">
+        <button id="close-card" aria-label="关闭">×</button>
+        <p class="card-kicker">水边的邻居</p>
+        <h2 id="story-title">小鸭子</h2>
+        <p id="story-copy">在暖暖的石头旁，歇一会儿。</p>
+        <p id="audio-credit" hidden style="font-size:10px;line-height:1.6;color:#5f7468">鸭叫录音：<a href="https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_-_Mallard_-_XC62258.ogg" target="_blank" rel="noopener">Jonathon Jongsma</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>（截取、淡入淡出及音量调整）</p>
+      </aside>
+      <nav class="nature-tools" aria-label="环境调节">
+        <button class="tool-button wave-tool" id="water-tool" aria-label="调节水位" aria-controls="water-panel" aria-expanded="false"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/waves.svg" alt="" /><span class="tooltip" role="tooltip">水位</span></button>
+        <button class="tool-button wind-tool" id="wind-tool" aria-label="调节风力" aria-controls="wind-panel" aria-expanded="false"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/wind.svg" alt="" /><span class="tooltip" role="tooltip">风力</span></button>
+      </nav>
+      <section id="water-panel" class="control-panel" aria-label="水位调节" hidden>
+        <div class="tide-heading"><label for="water-level">水位</label><output id="water-value" for="water-level">56%</output><label class="auto-tide"><input id="auto-tide" type="checkbox" role="switch" />自动潮汐</label></div>
+        <input id="water-level" type="range" min="0" max="100" value="56" step="1" aria-label="水位" />
+        <div class="tide-scale"><span>低水位</span><span id="tide-status" aria-live="off">平潮 · 水光轻晃</span><span>高水位</span></div>
+      </section>
+      <section id="wind-panel" class="control-panel" aria-label="风力调节" hidden>
+        <div class="tide-heading"><label for="wind-strength">风力</label><output id="wind-value" for="wind-strength">47%</output></div>
+        <input id="wind-strength" type="range" min="0" max="100" value="47" step="1" aria-label="风力" />
+      </section>
+      <div class="footer-ui">
+        <p id="hint" hidden>林间有风，岸边有潮。</p>
+        <button id="sound-toggle" class="tool-button sound-toggle" aria-label="开启声音" aria-pressed="false"><img src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/volume-x.svg" alt="" /><span class="tooltip" role="tooltip">开启声音</span></button>
+      </div>
+      <div id="loading" class="loading" aria-live="polite">
+        <div class="loading-mark"></div>
+        <p>正在走进这片小天地</p>
+      </div>
+      <div id="cursor-trail" aria-hidden="true"></div>
+    </main>
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
